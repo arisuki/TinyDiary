@@ -11,9 +11,9 @@ require("./config/passport");
 const session = require("express-session");
 const passport = require("passport");
 const methodOverride = require("method-override");
+const entryRouter = require("./routes/entries")
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -48,7 +48,7 @@ app.use(function (req, res, next) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use("/entries", entryRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

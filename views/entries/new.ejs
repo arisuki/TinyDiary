@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+
+<form id="new-form" action="/entries" method="POST">
+  <p>image upload goes here</p>
+  <p>
+    <label>Title:</label>
+    <input type="text" name="title" />
+  </p>
+  <p>
+    <label>Description:</label>
+    <input type="text" name="text" />
+  </p>
+  <p>
+    Optional: </br>
+    <label>Date created:</label>
+    <input type="datetime-local" name="date" />
+  </p>
+  <p>
+    <label>Palette:</label>
+    <input type="text" name="text" />
+  </p>
+
+  <input type="submit" value="Add entry" />
+</form>
+
+<%- include('../partials/footer') %>

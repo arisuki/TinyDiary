@@ -2,18 +2,19 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
-  
-  <body>
 
+  <body>
     <nav>
       <a href="/entries/index">VIEW ALL ENTRIES</a>
+      <a href="/entries/new">ADD ENTRY</a>
       <% if (user) { %>
-        <a href="/entries/new">ADD ENTRY</a>
-        <a href="/logout" class="login">LOG OUT&nbsp;<img src="/images/cry.gif"></a>
+      <a href="/logout" class="login"><img src="./images/logout.gif"></a>
       <% } else { %>
-        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="/images/heart.gif"></a>
+      <a href="/auth/google" class="login"
+        ><img src="./images/login.gif"></a>
       <% } %>
     </nav>
-  
+  </body>
+</html>
