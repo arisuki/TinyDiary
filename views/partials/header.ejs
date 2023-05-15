@@ -7,9 +7,10 @@
 
   <body>
     <nav>
+        <a href="/">HOME</a>
       <a href="/entries/">VIEW ALL ENTRIES</a>
-      <a href="/entries/new">ADD ENTRY</a>
       <% if (user) { %>
+      <a href="/entries/new">ADD ENTRY</a>
       <a href="/logout" class="login"><img src="./images/logout.gif"></a>
       <% } else { %>
       <a href="/auth/google" class="login"

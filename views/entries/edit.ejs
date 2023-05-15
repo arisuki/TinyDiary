@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+
+<form action="/entries/<%= entry.id %>?_method=PUT" method="POST" autocomplete="off">
+    Title:
+    <input type="text" name="title" value="<%= entry.title %>">
+    Description:
+    <input type="text" name="description" value="<%= entry.description %>">
+
+    <button type="submit">Edit diary entry</button>
+</form>
+
+<%- include('../partials/footer') %>

@@ -15,12 +15,13 @@ const entrySchema = new Schema(
       ref: "User",
       required: true,
     },
+    
     description: {
       type: String,
       required: false,
     },
     date: Date,
-    
+
     // image: {
     //   type: String,
     //   required: false,

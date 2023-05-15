@@ -1,0 +1,21 @@
+<%- include('../partials/header.ejs') %>
+
+<h3>
+    <%= entry.title %>
+</h3>
+
+<section id="show-page">
+    <div>Title: </div>
+    <div><%= entry.title %></div>
+    <div>Date: </div>
+    <div><%= entry.date %></div>
+    <div>User: </div>
+    <div><img src="<%= entry.userAvatar %>" alt="">
+        <%= entry.userName %></div>
+    <div>Description: </div>
+    <div><%= entry.description %></div>
+  </section>
+
+<a href="/entries/<%= entry.id %>/edit">Edit</a>
+
+<%- include('../partials/footer.ejs') %>
