@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  
+  <body>
+
+    <nav>
+      <a href="/entries/index">VIEW ALL ENTRIES</a>
+      <% if (user) { %>
+        <a href="/entries/new">ADD ENTRY</a>
+        <a href="/logout" class="login">LOG OUT&nbsp;<img src="/images/cry.gif"></a>
+      <% } else { %>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="/images/heart.gif"></a>
+      <% } %>
+    </nav>
+  
