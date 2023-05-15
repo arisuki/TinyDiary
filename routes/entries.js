@@ -4,5 +4,6 @@ const entryCtrl = require('../controllers/entries.js')
 
 module.exports = router
 
-// router.get('/', entryCtrl.index)
+router.get('/', entryCtrl.index)
 router.get('/new', entryCtrl.newEntry)
+router.post('/', entryCtrl.create)

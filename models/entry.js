@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const entrySchema = new Schema(
   {
-    date: Date,
+ 
     title: {
       type: String,
       required: true,
@@ -15,11 +15,12 @@ const entrySchema = new Schema(
       ref: "User",
       required: true,
     },
-    text: {
+    description: {
       type: String,
       required: false,
     },
-
+    date: Date,
+    
     // image: {
     //   type: String,
     //   required: false,

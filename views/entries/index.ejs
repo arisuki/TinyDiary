@@ -3,4 +3,18 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
 
+    image gallery goes here!
+
+    <ul>
+        <% entries.forEach(function(entry) { %>
+            <li>
+
+                <a href="/entries/<%= entry.id %>">
+                    <%= entry.title %>
+                </a>
+            </li>
+            <% }); %>
+    </ul>
+
+
 <%- include('../partials/footer') %>
