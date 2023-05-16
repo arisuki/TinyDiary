@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const entryCtrl = require('../controllers/entries.js')
+const entryCtrl = require('../controllers/entries')
 
 module.exports = router
 

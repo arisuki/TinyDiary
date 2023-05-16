@@ -29,7 +29,6 @@ nav {
 padding: 20px;
 gap: 10px;
 max-width: 100%;
-width: 60%;
 z-index: 1;
 text-align: right;
   
@@ -63,4 +62,12 @@ border-bottom: 8px solid;
   overflow-y: scroll;
   z-index: 50;
 
+}
+
+#btn-img{
+  background: none;
+  padding: 0;
+  border:none;
+  margin: 0;
+  
 }

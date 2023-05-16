@@ -5,7 +5,7 @@
 </h3>
 
 <section id="show-page">
-    <div><img src="<%= entry.image.contentType %>" alt=""></div>
+    <div><%= entry.image %> - </div>
  
     <div>Date: </div>
     <div><%= entry.date %></div>
@@ -18,11 +18,20 @@
  
   </section>
 
-<a href="/entries/<%= entry.id %>/edit"><img src="./../../images/edit.png" alt="edit"></a>
+<a href="/entries/<%= entry.id %>/edit">
+  <img src="./../../images/edit.png" alt="edit post" title="edit post"></a>
 <hr>
-<a href="/entries/<%= entry.id %>/new"><img src="./../../images/comment.png" alt="edit"></a>
 
-<h4>comments:</h4>
 
+<form action="/entries/<%=entry._id%>/comments" method="POST">
+<label>Comment:</label>
+<br>
+<textarea name="content"></textarea>
+<br>
+<button type="submit" id="btn-img"><img src="./../../images/comment.png" title="add comment" alt="new comment">
+</button>
+</form>
+<br>
+<hr>
 
 <%- include('../partials/footer.ejs') %>
