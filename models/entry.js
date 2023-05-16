@@ -5,22 +5,31 @@ const Schema = mongoose.Schema;
 
 const entrySchema = new Schema(
   {
+    image: {
+        data: Buffer,
+        contentType: String
+    },
  
     title: {
       type: String,
       required: true,
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    
+    userName: String,
+    userAvatar: String,
+
     description: {
       type: String,
       required: false,
     },
-    date: Date,
+    date: {
+        type: Date,
+        default: new Date()
+    }
 
     // image: {
     //   type: String,

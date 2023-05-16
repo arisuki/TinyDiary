@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+
+    <h1><%= title %></h1>
+    <p><%= title %></p>
+ <ul>
+    <% entries.forEach(function(entry) { %>
+        <li>
+
+            <a href="/entries/<%= entry.id %>">
+                <%= entry.image %>
+                <%= entry.title %>
+            </a>
+        </li>
+            <form action="/entries/<%= entry.id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+            </form>         
+
+        <% }); %>
+</ul>
+
+<%- include('../partials/footer') %>

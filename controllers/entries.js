@@ -7,14 +7,18 @@ module.exports = {
   deleteEntry,
   show,
   updateButton,
+  update,
+  personal,
 };
 
 function newEntry(req, res) {
-  res.render("entries/new", { title: "New Entry" });
+   res.render("entries/new", { title: "new Entry" })
 }
 
 function createEntry(req, res, next) {
   req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
   Entry.create(req.body)
     .then(() => res.redirect("/entries"))
     .catch(next);
@@ -26,11 +30,24 @@ function index(req, res, next) {
     .then((entries) => {
       res.render("entries/index", {
         entries,
-        title: "All diary entries",
+        title: "all diary entries",
       });
     })
     .catch(next);
 }
+
+//shows only YOUR art
+function personal(req, res, next) {
+    Entry.find({user: req.user._id})
+        .then(entries => {
+            res.render('entries/personal', {
+                entries,
+                title: "my diary entries"
+            })
+        })
+        .catch(next)
+}
+
 
 function deleteEntry(req, res, next) {
   Entry.findById(req.params.id)
@@ -56,14 +73,15 @@ function updateButton(req, res, next) {
   });
 }
 
-//personal index
-// function index(req, res, next) {
-//     Entry.findOne({user: req.user._id})
-//         .then(entries => {
-//             res.render('entries/index', {
-//                 entries,
-//                 title: "All diary entries"
-//             })
-//         })
-//         .catch(next)
-// }
+
+function update(req, res, next){
+    Entry.findById(req.params.id)
+        .then((entry) => {
+            if (!entry.user.equals(req.user._id)) throw new Error('Unauthorized')
+            return entry.updateOne(req.body)
+        })
+        .then(() => res.redirect(`/entries/${req.params.id}`))
+        .catch(next)
+
+    }
+

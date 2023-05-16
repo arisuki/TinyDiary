@@ -1,8 +1,35 @@
 body {
+  display:grid;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white; 
+
+  box-sizing: border-box;
+  min-height: 100vh;
+  border-image:url("./../images/border1.png") 12;
+  border-style: solid;
+  border-width: 12px;
+  background-color: black;
+  background-image:("./../images/bg.png");
+  background-repeat: repeat;
+  margin: 0px;
+  padding: 0px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  margin: auto;
+padding: 20px;
+gap: 10px;
+  
 }
 
 a {
-  color: #00B7FF;
+  color: #dcf5ff;
 }

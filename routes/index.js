@@ -7,8 +7,7 @@ router.get('/auth/google', passport.authenticate(
   'google',
   {
     scope: ['profile', 'email'],
-    // Optionally force pick account every time
-    // prompt: "select_account"
+    prompt: "select_account"
   }
 ));
 router.get('/oauth2callback', passport.authenticate(

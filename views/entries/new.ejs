@@ -1,24 +1,37 @@
 <%- include('../partials/header') %>
 
 <h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
+<p>Create a <%= title %></p>
 
-<form id="new-form" action="/entries" method="POST">
-  <p>image upload goes here</p>
+<form id="new-form" action="/entries" method="POST" enctype="multipart/form-data">
+  
+      <div>
+        <label for="image">Upload Image</label>
+        <input type="file" id="image" name="image" required=false />
+      </div>
+
   <p>
     <label>Title:</label>
     <input type="text" name="title" />
   </p>
   <p>
     <label>Description:</label>
-    <input type="text" name="description" />
+    <br>
+    <textarea
+          name="description"
+          value=""
+          rows="2"
+          placeholder="enter description"
+        ></textarea>
   </p>
   <p>
     <label>Date Created:</label>
-    <input type="datetime-local" name="date" />
+    <input type="date (yyyy-mm-dd)" name="date" />
   </p>
 
   <input type="submit" value="Add entry" />
 </form>
+
+
 
 <%- include('../partials/footer') %>

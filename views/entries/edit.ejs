@@ -1,12 +1,14 @@
 <%- include('../partials/header') %>
 
-<form action="/entries/<%= entry.id %>?_method=PUT" method="POST" autocomplete="off">
+<form action="/entries/<%= entry.id %>?_method=PUT" method="POST" autocomplete="off" enctype="multipart/form-data">
+  <br><br>
     Title:
     <input type="text" name="title" value="<%= entry.title %>">
+    <br><br>
     Description:
     <input type="text" name="description" value="<%= entry.description %>">
-
-    <button type="submit">Edit diary entry</button>
+<br><br>
+    <button type="submit"><img src="./../../images/save.png"></button>
 </form>
 
 <%- include('../partials/footer') %>

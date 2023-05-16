@@ -5,17 +5,24 @@
 </h3>
 
 <section id="show-page">
-    <div>Title: </div>
-    <div><%= entry.title %></div>
+    <div><img src="<%= entry.image.contentType %>" alt=""></div>
+ 
     <div>Date: </div>
     <div><%= entry.date %></div>
-    <div>User: </div>
-    <div><img src="<%= entry.userAvatar %>" alt="">
-        <%= entry.userName %></div>
     <div>Description: </div>
     <div><%= entry.description %></div>
+    <hr>
+    <div>By: </div>
+    <div><%= entry.userName %></div>
+    <div><img src="<%= entry.userAvatar %>" alt=""></div>
+ 
   </section>
 
-<a href="/entries/<%= entry.id %>/edit">Edit</a>
+<a href="/entries/<%= entry.id %>/edit"><img src="./../../images/edit.png" alt="edit"></a>
+<hr>
+<a href="/entries/<%= entry.id %>/new"><img src="./../../images/comment.png" alt="edit"></a>
+
+<h4>comments:</h4>
+
 
 <%- include('../partials/footer.ejs') %>
