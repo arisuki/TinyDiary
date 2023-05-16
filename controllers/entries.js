@@ -12,7 +12,7 @@ module.exports = {
 };
 
 function newEntry(req, res) {
-   res.render("entries/new", { title: "new Entry" })
+   res.render("entries/new", { title: "new_diary_entry.txt" })
 }
 
 function createEntry(req, res, next) {
@@ -30,7 +30,7 @@ function index(req, res, next) {
     .then((entries) => {
       res.render("entries/index", {
         entries,
-        title: "all diary entries",
+        title: "all_diary_entries.txt",
       });
     })
     .catch(next);
@@ -42,7 +42,7 @@ function personal(req, res, next) {
         .then(entries => {
             res.render('entries/personal', {
                 entries,
-                title: "my diary entries"
+                title: "my_diary_entries.txt"
             })
         })
         .catch(next)

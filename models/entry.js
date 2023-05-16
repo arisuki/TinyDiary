@@ -6,8 +6,9 @@ const Schema = mongoose.Schema;
 const entrySchema = new Schema(
   {
     image: {
+      
         data: Buffer,
-        contentType: String
+        contentType: String       
     },
  
     title: {
