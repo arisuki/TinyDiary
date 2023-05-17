@@ -1,69 +1,81 @@
 <%- include('../partials/header.ejs') %>
 
-<h3>
-   ><%= entry.title %>.png
-</h3>
+<h3>><%= entry.title %>.png</h3>
 
 <section id="show-page">
-    <div> <img id="image-show" src="<%= entry.image %>"></div>
-    <div>Date: </div>
-    <div>><%= entry.createdAt %></div>
-    <br>
-    <div>Description: </div>
-    <div>><%= entry.description %></div>
-    <hr>    <hr>
-
-    <div>By: </div>
-    <div><%= entry.userName %></div>
-    <div><img id = "tiny" src="<%= entry.userAvatar %>" alt=""></div>
- 
-  </section>
-<p>
-  <% if (user) { %>
-<a href="/entries/<%= entry.id %>/edit">
-  <img src="./../../images/edit.png" alt="edit post" title="edit post"></a>
+  <div><img id="image-show" src="<%= entry.image %>" /></div>
+  <br />
+  <div>Description:</div>
+  <div>> <%= entry.description %></div>
+  <br />
+  <div>Date:</div>
+  <div>> <%= entry.createdAt %></div>
+  <br>
+  <div>By:</div>
+  <div>> <%= entry.userName %></div>
+  <div><img id="tiny" src="<%= entry.userAvatar %>" alt="" /></div>
+</section>
+<br />
+<% if (user) { %>
+<div id="edit-delete-buttons">
+  <a href="/entries/<%= entry.id %>/edit">
+    <img src="./../../images/edit.png" alt="edit post" title="edit post"
+  /></a>
 
   <form action="/entries/<%= entry.id %>?_method=DELETE" method="POST">
-      <button type="submit"><img id="btn-img" src="./../../images/delete.png" alt="delete post" title="delete"></button>
-  </form>        
-  <% } %>
-</p>
+    <button id="btn-img" type="submit">
+      <img src="./../../images/delete.png" alt="delete post" title="delete" />
+    </button>
+  </form>
+</div>
 
-  <br>
-  <br>
+<div>
+  <hr />
+  <hr />
+</div>
+
 <form action="/entries/<%=entry._id%>/comments" method="POST">
-<label>Comment:</label>
-<br>
-<textarea name="content"></textarea>
-<br>
-<button type="submit" id="btn-img"><img src="./../../images/comment.png" title="add comment" alt="new comment">
-</button>
+  <label>Comment:</label>
+  <br />
+  <textarea name="content"></textarea>
+  <br />
+  <button type="submit" id="btn-img">
+    <img
+      src="./../../images/comment.png"
+      title="add comment"
+      alt="new comment"
+    />
+  </button>
 </form>
+<div>
+  <hr />
+  <hr />
+</div>
 
+<% } %> <% if (comments.length) { %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><h2>Comments</h2></th>
+      <th>From</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% comments.forEach(function(c) { %>
+    <tr>
+      <td>> <%= c.content %></td>
+      <td>
+        <img id="tiny" src="<%= c.user.avatar %>" title="<%= c.user.name %>" />
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
 
-
-<% if (comments.length) { %>
-  <table class="table">
-    <thead>
-          <tr>
-              <th>Comments</th><th>From</th>
-          </tr>
-      </thead>
-      <tbody>
-          <% comments.forEach(function(c) { %>
-              <tr>
-              <td><%= c.content %></td>  
-              <td><img id="tiny" src="<%= c.user.avatar %>" title="<%= c.user.name %>"></td>
-              </tr>
-          <% }); %>
-      </tbody>
-  </table>
 <% } else { %>
-  <h5>No comments Yet</h5>
+<h5>No comments Yet</h5>
 <% } %>
 
-
-<br>
-<hr>
+<br />
 
 <%- include('../partials/footer.ejs') %>

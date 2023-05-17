@@ -70,7 +70,7 @@ function deleteEntry(req, res, next) {
       if (!entry.user.equals(req.user._id)) throw new Error("Unauthorized");
       return entry.deleteOne();
     })
-    .then(() => res.redirect("/entries"))
+    .then(() => res.redirect("/entries/personal"))
     .catch(next);
 }
 

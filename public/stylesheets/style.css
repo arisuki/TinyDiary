@@ -1,18 +1,18 @@
 body {
-  display:grid;
+  display: grid;
   flex-direction: column;
   justify-content: space-between;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: white; 
+  color: white;
 
   box-sizing: border-box;
   min-height: 100vh;
-  border-image:url("./../images/border1.png") 12;
+  border-image: url("./../images/border1.png") 12;
   border-style: solid;
   border-width: 12px;
   background-color: white;
-  background-image:url("./../images/bg.png");
+  background-image: url("./../images/bg.png");
   background-repeat: repeat;
   margin: 0px;
   padding: 0px;
@@ -26,72 +26,81 @@ nav {
   right: 30px;
   top: 30px;
   margin: auto;
-padding: 20px;
-gap: 10px;
-max-width: 100%;
-z-index: 1;
-text-align: right;
-  
+  padding: 20px;
+  gap: 10px;
+  max-width: 100%;
+  z-index: 1;
+  text-align: right;
 }
 
 a {
   color: #dcf5ff;
 }
 
-
-.main-content{
+.main-content {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  border-image:url("./../images/border2.png") 51 51 8 8/51px 51px 8px 8px;
+  border-image: url("./../images/border2.png") 51 51 8 8/51px 51px 8px 8px;
   border-style: solid;
-border-top: 51px solid;
-border-left: 8px solid;
-border-right: 8px solid;
-border-bottom: 8px solid;
-
+  border-top: 51px solid;
+  border-left: 8px solid;
+  border-right: 8px solid;
+  border-bottom: 8px solid;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 16px; 
+  font-weight: bold;
   max-width: 50%;
   max-height: 80%;
 
   background-color: black;
   color: white;
-  padding: 50px;  
+  padding: 50px;
   position: absolute;
   left: 30px;
   top: 30px;
   overflow-y: scroll;
   z-index: 50;
-
 }
 
-#btn-img{
+#btn-img {
   background: none;
   padding: 0;
-  border:none;
+  border: none;
   margin: 0;
-  
+  cursor: pointer;
 }
 
-#tiny{
-  height:40px;
-  width:40px;
-  border-radius:50%;
-
+#tiny {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 
-#image-show{
+#image-show {
   width: 400px;
   height: auto;
 }
 
-#image-thumb{
+#image-thumb {
   width: 100px;
-  height: 100px; 
+  height: 100px;
   object-fit: cover;
   padding: 5px;
 }
 
-.gallery{
+.gallery {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
+  margin: 0px;
+  line-height: 0px;
+}
+
+.table{
+text-align: left;
+}
+
+#edit-delete-buttons{
+  display: flex;
+  flex-direction: row;
 }
