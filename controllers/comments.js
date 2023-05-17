@@ -6,6 +6,32 @@ module.exports = {
   // deleteComment
 };
 
+
+// async function createComment(req, res) {
+//   req.body.user = req.user._id;
+//   req.body.entry = req.params.id;
+//   try {
+//     await Comment.create(req.body);
+//     res.redirect(`/entries/${req.params.id}`);
+//   } catch (err) {
+//     res.send(err);
+//   }
+// }
+
+// //this was working before new show
+function createComment(req, res, next) {
+  console.log(req.body);
+  req.body.user = req.user._id;
+  req.body.userName = req.user.name;
+  req.body.userAvatar = req.user.avatar;
+  Entry.findById(req.params.id)
+    .then(Comment.create(req.body))
+    .then(() => res.redirect(`/entries/${req.params.id}`))
+    .catch(next);
+}
+
+
+
 // function deleteComment(req,res, next){
 //     Entry.findOne({'comments._id': req.params.id, 'comments.user': req.user._id})
 //     .then((entry) => {
@@ -16,17 +42,6 @@ module.exports = {
 //     .catch(next);
 // }
 
-function createComment(req, res, next) {
-  console.log(req.body);
-  req.body.user = req.user._id;
-  req.body.userName = req.user.name;
-  req.body.userAvatar = req.user.avatar;
-  Entry.findById(req.params.id)
-    .then(Comment.create(req.body))
-    // return Entry.save()
-    .then(() => res.redirect(`/entries/${req.params.id}`))
-    .catch(next);
-}
 
 //   const Entry = require("../models/entry");
 

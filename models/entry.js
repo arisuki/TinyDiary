@@ -19,6 +19,7 @@ const entrySchema = new Schema(
       ref: "User",
       required: true,
     },
+    //get rid of these 2
     userName: String,
     userAvatar: String,
 

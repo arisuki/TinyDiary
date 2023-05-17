@@ -1,5 +1,5 @@
 const Entry = require("../models/entry");
-// const Comment = require("../models/comment");
+const Comment = require("../models/comment");
 const multer = require('multer');
 
 module.exports = {
@@ -74,32 +74,50 @@ function deleteEntry(req, res, next) {
     .catch(next);
 }
 
+//new function to show entries and comments
+// async function show(req, res, next) {
+//   try {
+//     const entry= await Entry.findById(req.params.id).populate("user")
+//     const comments= await Comment.find({entry: entry._id}).populate("user")
+//     console.log("////////////////////////")
+//     console.log("here is the entry:", entry)
+//     console.log("here are comments:", comments)
+//     console.log("////////////////////////")
+//     res.render("entries/show", { entry, comments, title: entry.title });
+//   } catch (err) {
+//     console.log(err)
+//     res.render("entries/show", { errorMsg: err.message })
+//   }
+// }
+    //////////////// previous working function:
+
+
 function show(req, res, next) {
   Entry.findById(req.params.id)
     .populate("user")
     .then((entry) => {
-      res.render("entries/show", { entry, title: entry.title });
+      res.render("entries/show", { entry, title: entry.title, comments: 0});
     })
     .catch(next);
 }
+
 // entry.users.name, etc to input it 
 
-///////////////////////////function with showing entries
+/////////////////////////function with showing entries
 // function show(req, res, next) {
 //   Entry.findById(req.params.id)
 //     .then((entry) => {
 //       return Comment.find({entry: entry.id})
-//         .then((comments)=>{
-//           return {entry: entry, comments: comments}
+//         .then(()=>{
+//           return {entry: Entry, comments: Comment}
 //         })
-//         // .catch((error)=>console.error)
 //       })
-//       .then((data)=>{
-//         res.render("entries/show", { entry: data.entry, comments: data.comments, title: entry.title });
+//       .then(()=>{
+//         res.render("entries/show", {comments, entrty, title: Entry.title });
 //       })
 //         .catch(next)
 // }
-///////////////////////////function with showing entries
+/////////////////////////function with showing entries
 
 
 // function show(req, res, next) {
