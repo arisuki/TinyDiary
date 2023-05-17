@@ -20,10 +20,12 @@ module.exports = {
 
 // //this was working before new show
 function createComment(req, res, next) {
-  console.log(req.body);
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
   req.body.userAvatar = req.user.avatar;
+  req.body.entry = req.params.id
+  console.log("req.body", req.body);
+console.log('req params', req.params.id);
   Entry.findById(req.params.id)
     .then(Comment.create(req.body))
     .then(() => res.redirect(`/entries/${req.params.id}`))

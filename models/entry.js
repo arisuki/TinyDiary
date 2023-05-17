@@ -5,14 +5,13 @@ const Schema = mongoose.Schema;
 const entrySchema = new Schema(
   {
     image: {
-        // type: String,
-        data: Buffer,
-        contentType: String       
+        type: String,
+        required: true,       
     },
  
     title: {
       type: String,
-      required: false,
+      required: true,
     },
     user: {
       type: Schema.Types.ObjectId,

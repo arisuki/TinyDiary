@@ -71,3 +71,27 @@ border-bottom: 8px solid;
   margin: 0;
   
 }
+
+#tiny{
+  height:40px;
+  width:40px;
+  border-radius:50%;
+
+}
+
+#image-show{
+  width: 400px;
+  height: auto;
+}
+
+#image-thumb{
+  width: 100px;
+  height: 100px; 
+  object-fit: cover;
+  padding: 5px;
+}
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap; 
+}

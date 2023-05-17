@@ -1,20 +1,17 @@
 <%- include('../partials/header') %>
 
     <h1><%= title %></h1>
- <ul>
+<div class="gallery">
+
     <% entries.forEach(function(entry) { %>
-        <li>
-
-            <a href="/entries/<%= entry.id %>">
-                <%= entry.image %>
-                <%= entry.title %>
-            </a>
-        </li>
-            <form action="/entries/<%= entry.id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-            </form>         
-
+        
+        <a href="/entries/<%= entry.id %>">
+            <img id="image-thumb" src="<%= entry.image %>" title="<%= entry.title %>">
+        </a>
+        
+        
         <% }); %>
-</ul>
+    </div>
+
 
 <%- include('../partials/footer') %>
