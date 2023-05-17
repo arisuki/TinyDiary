@@ -8,32 +8,40 @@ require('dotenv').config()
 require("./config/database");
 require("./config/passport");
 require("./config/multer")
+// require("./config/cloudinary")
 
 const session = require("express-session");
 const passport = require("passport");
 const methodOverride = require("method-override");
-
-//multer const's
+const cloudinary = require("cloudinary").v2
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const multer = require('multer');
+
+/////////////////////////////image storage
+
+cloudinary.config({
+    cloud_name: "dmp9qezbe",
+    api_key: "936383818447884",
+    api_secret: "a7r4sI4YlPsAcVWyo9Piqd-E2Zw",
+  });
+
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "DEV",
+  },
+});
+
+const upload = multer({ storage: storage });
+////////////////////////////image storage
+
 
 //routers
 const indexRouter = require('./routes/index');
 const entryRouter = require("./routes/entries")
-const commentRouter = require("./routes/comments.js")
-
+const commentRouter = require("./routes/comments")
+// const multerRouter = require("./routes/multer")
 const app = express();
-
-/////////////////////////
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//       cb(null, './uploads')
-//   },
-//   filename: (req, file, cb) => {
-//       cb(null, file.fieldname + '-' + Date.now())
-//   }
-// });
-// ////////////////////////
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,14 +64,14 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// //multer stuff
-// app.use(multer({
-//   dest:'./uploads/',
-//   rename: function (fieldname, filename){
-//     return filename.replace(/\W+/g, '-').toLowerCase();
-// }
-// }).single('image'))
-app.use(multer({dest:'./uploads/'}).single('image'))
+// app.use(multer({dest:'./uploads/'}).single('image'))
+//////////////////////////////////multer use
+
+// app.post("/", upload.single("picture"), async (req, res) => {
+//   return res.json({ picture: req.file.path });
+// });
+/////////////////////////////////multer use
+
 
 app.use(function (req, res, next) {
   res.locals.user = req.user;
@@ -76,6 +84,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use("/entries", entryRouter)
 app.use("/", commentRouter)
+app.use("/", multerRouter)
 
 
 // catch 404 and forward to error handler
