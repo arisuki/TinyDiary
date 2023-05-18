@@ -7,4 +7,11 @@
   > guests can only see full gallery
 </p>
 
+<p>
+  <br>
+  <% entries.reverse().slice(0,3).forEach(function(entry) { %>
+  <a href="/entries/<%= entry.id %>"><img id="image-thumb" src="<%= entry.image %>" title="<%= entry.title %>" /></a>
+  <% }); %>
+</p>
+
 <%- include('partials/footer') %>

@@ -2,15 +2,13 @@
 
 <div class="gallery">
     <h1><%= title %></h1>
+    <p>
+    <br>
 
-    <% entries.forEach(function(entry) { %>
-        
-        <a href="/entries/<%= entry.id %>">
-            <img id="image-thumb" src="<%= entry.image %>" title="<%= entry.title %>">
-        </a>
-        
-        
+    <% entries.slice().reverse().forEach(function(entry) { %>
+        <a href="/entries/<%= entry.id %>"><img id="image-thumb" src="<%= entry.image %>" title="<%= entry.title %>"></a>   
         <% }); %>
+    </p>
     </div>
 
 

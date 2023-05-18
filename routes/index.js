@@ -26,9 +26,18 @@ router.get("/logout", function (req, res) {
 });
 
 
+// /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'tiny_diary.txt' });
+// });
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'tiny_diary.txt' });
-});
+  Entry.find({})
+  .then((entries) => {
+  res.render('index', {entries, title: 'tiny_diary.txt' });
+})
+})
+
 
 module.exports = router;

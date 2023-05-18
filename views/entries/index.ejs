@@ -2,12 +2,12 @@
 
 <div class="gallery">
 <h1><%= title %></h1>
-
-  <% entries.forEach(function(entry) { %>
-  <a href="/entries/<%= entry.id %>">
-    <img id="image-thumb" src="<%= entry.image %>" title="<%= entry.title %>" />
-  </a>
-
+<p>
+  <br>
+  <% entries.reverse().forEach(function(entry) { %>
+  <a href="/entries/<%= entry.id %>"><img id="image-thumb" src="<%= entry.image %>" title="<%= entry.title %>" /></a>
   <% }); %>
+</p>
 </div>
+
 <%- include('../partials/footer') %>

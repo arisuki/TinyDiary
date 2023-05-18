@@ -1,7 +1,8 @@
+
 body {
   justify-content: space-between;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: white;
 
   box-sizing: border-box;
@@ -9,13 +10,14 @@ body {
   border-image: url("./../images/border1.png") 12;
   border-style: solid;
   border-width: 12px;
-  background-color: white;
+
+  background-color: black;
   background-image: url("./../images/bg.png");
   background-repeat: repeat;
   margin: 0px;
   padding: 0px;
   z-index: 0;
-  
+
 }
 
 nav {
@@ -27,7 +29,6 @@ nav {
   margin: auto;
   padding: 20px;
   gap: 10px;
-  max-width: 100%;
   z-index: 1;
   text-align: left;
 }
@@ -49,7 +50,7 @@ a {
   font-family:'Courier New', Courier, monospace;
   font-size: 16px; 
   font-weight: bold;
-  max-width: 50%;
+  max-width: 70%;
   max-height: 90%;
 
   background-color: black;
@@ -90,14 +91,19 @@ a {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  padding: 5px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  margin: 0px;
-  line-height: 0px;
+  line-height: 25px;
+  padding: 0px;
+}
+
+#show-page{
+  max-width: 400px;
 }
 
 .table{
