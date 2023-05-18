@@ -7,6 +7,7 @@ body {
 
   box-sizing: border-box;
   min-height: 100vh;
+  max-height: 100vh;
   border-image: url("./../images/border1.png") 12;
   border-style: solid;
   border-width: 12px;
@@ -52,7 +53,6 @@ a {
   font-weight: bold;
   max-width: 70%;
   max-height: 90%;
-
   background-color: black;
   color: white;
   padding: 50px;
@@ -134,3 +134,86 @@ text-align: left;
   from, to { border-color: transparent }
   50% { border-color: greenyellow; }
 }
+
+@media screen and (min-width: 450px) and (max-width: 800px) {
+ body{
+  display: grid;
+
+
+ }
+  .main-content {
+    width: 95%;
+    max-width: 95%;
+    max-height: 80%;
+    z-index: 1;
+margin: auto;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    top: 10px;
+  }
+
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    row-gap: auto;
+   position: absolute;
+   bottom: 5px;
+   top: auto;
+   left: auto;
+   right: auto;
+   z-index: 1;
+    margin: auto;
+  padding: 0px;
+  gap: 10px;
+    
+  }
+
+
+  #btn-img {
+    background: none;
+    padding: 0;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    size: 50%;
+}
+
+#image-show {
+  width: 300px;
+  height: auto;
+}
+
+}
+
+
+
+@media screen and (min-width: 100px) and (max-width: 449px) {
+ 
+.main-content{
+  width: 100%;
+  max-width: 100%;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+}
+
+.gallery{
+  padding: 5px;
+}
+
+ #image-show {
+   width: 150px;
+   height: auto;
+ }
+ 
+
+.nav{
+  position: absolute;
+  bottom: 0px;
+  padding: 0px;
+}
+
+
+ }
