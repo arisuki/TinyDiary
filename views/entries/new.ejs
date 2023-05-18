@@ -4,12 +4,12 @@
 <form id="new-form" action="/entries" method="POST" >
       <div>
         <label for="image">> image link</label>
-        <input type="text" name="image" required=false />
+        <input type="text" name="image" required=true  placeholder="img.png" />
       </div>
 
   <p>
     <label>> title:</label>
-    <input type="text" name="title" />
+    <input type="text" name="title"  placeholder="img" />
   </p>
   <p>
     <label>> description:</label>
@@ -17,7 +17,7 @@
     <textarea
           name="description"
           value=""
-          rows="2"
+          rows="4"
           placeholder="enter description"
         ></textarea>
   </p>

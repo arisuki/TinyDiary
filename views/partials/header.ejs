@@ -6,15 +6,15 @@
   </head>
   <body>
     <nav>
-      <a href="/"><img title="home" src="./../../images/home.png" alt="home"></a>
-      <a href="/entries/"><img title="all pics" src="./../../images/pics.png" alt="all pics"></a>
+      <a href="/"><img id="btn-img" title="home" src="./../../images/home.png" alt="home"></a>
+      <a href="/entries/"><img id="btn-img" title="all pics" src="./../../images/pics.png" alt="all pics"></a>
       <% if (user) { %>
-    <a href="/entries/personal"><img title="user pics" src="./../../images/user.png" alt="user's pics"></a>
-      <a href="/entries/new"><img title="new entry" src="./../../images/new.png" alt="new entry"></a>
-      <a href="/logout" class="login"><img title="logout" src="./../../images/logout.png" alt="logout"></a>
+    <a href="/entries/personal"><img id="btn-img"title="user pics" src="./../../images/user.png" alt="user's pics"></a>
+      <a href="/entries/new"><img id="btn-img" title="new entry" src="./../../images/new.png" alt="new entry"></a>
+      <a href="/logout" class="login"><img id="btn-img" title="logout" src="./../../images/logout.png" alt="logout"></a>
       <% } else { %>
       <a href="/auth/google" class="login"
-        ><img title="login" src="./../../images/login.png" alt="login"></a>
+        ><img id="btn-img" title="login" src="./../../images/login.png" alt="login"></a>
       <% } %>
       <div style="clear:both"></div>
 

@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 
+<div class="gallery">
 <h1><%= title %></h1>
 
-<div class="gallery">
   <% entries.forEach(function(entry) { %>
   <a href="/entries/<%= entry.id %>">
     <img id="image-thumb" src="<%= entry.image %>" title="<%= entry.title %>" />
