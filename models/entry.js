@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const entrySchema = new Schema(
   {
     image: {
-        type: String,
-        required: true,       
+      type: String,
+      required: true,
     },
- 
+
     title: {
       type: String,
       required: true,
@@ -18,25 +18,15 @@ const entrySchema = new Schema(
       ref: "User",
       required: true,
     },
-    //get rid of these 2
-    userName: String,
-    userAvatar: String,
 
     description: {
       type: String,
       required: false,
     },
     date: {
-        type: Date,
-        default: new Date()
+      type: Date,
+      default: new Date(),
     },
-    // comments: [commentSchema]
-
-    // image: {
-    //   type: String,
-    //   required: false,
-    // },
-    // palette: [paletteSchema],
   },
 
   {
@@ -44,4 +34,4 @@ const entrySchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("Entry", entrySchema)
+module.exports = mongoose.model("Entry", entrySchema);

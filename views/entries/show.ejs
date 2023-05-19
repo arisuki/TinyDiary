@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
 <section id="show-page">
-<h1>> <%= entry.title %>.png</h1>
+  <h1>> <%= entry.title %>.png</h1>
 
   <div><img id="image-show" src="<%= entry.image %>" /></div>
   <br />
@@ -10,10 +10,9 @@
   <br />
   <div>Date:</div>
   <div>> <%= entry.createdAt %></div>
-  <br>
+  <br />
   <div>By:</div>
-  <div>> <%= entry.userName %></div>
-  
+  <div>> <%= entry.user.name %></div>
 </section>
 <br />
 <% if (user) { %>
